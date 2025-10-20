@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Em là của ai? 💖</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(
+          120deg,
+          #ffd4e5 0%,
+          #ffe6f0 25%,
+          #fff0f6 50%,
+          #e6f3ff 75%,
+          #d4e5ff 100%
+        );
+        font-family: "Quicksand", sans-serif;
+        color: #5a3a5f;
+        overflow: hidden;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 182, 193, 0.3),
+          transparent
+        );
+        border-radius: 50%;
+        top: -100px;
+        left: -100px;
+        animation: float 8s ease-in-out infinite;
+      }
+
+      body::after {
+        content: "";
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(
+          circle,
+          rgba(173, 216, 230, 0.3),
+          transparent
+        );
+        border-radius: 50%;
+        bottom: -80px;
+        right: -80px;
+        animation: float 10s ease-in-out infinite reverse;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+        50% {
+          transform: translate(30px, 30px);
+        }
+      }
+
+      .container {
+        background: rgba(255, 255, 255, 0.85);
+        padding: 40px 30px;
+        border-radius: 30px;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(255, 105, 180, 0.2),
+          0 0 0 1px rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        width: 90%;
+        max-width: 420px;
+        position: relative;
+        border: 2px solid rgba(255, 192, 203, 0.3);
+        z-index: 10;
+        animation: slideIn 0.6s ease-out;
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 30px 20px;
+          width: 95%;
+          margin: 0 10px;
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      h1 {
+        margin-bottom: 30px;
+        font-size: 28px;
+        background: linear-gradient(135deg, #ff6b9d, #c06c84, #6c5ce7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-family: "Pacifico", cursive;
+        text-shadow: 0 2px 10px rgba(255, 105, 180, 0.2);
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 24px;
+          margin-bottom: 20px;
+        }
+      }
+
+      input[type="password"] {
+        width: 100%;
+        padding: 16px 20px;
+        border: 2px solid #ffc0cb;
+        border-radius: 15px;
+        outline: none;
+        background: rgba(255, 240, 245, 0.6);
+        color: #5a3a5f;
+        font-size: 16px;
+        text-align: center;
+        font-family: "Quicksand", sans-serif;
+        transition: all 0.3s ease;
+      }
+
+      input[type="password"]:focus {
+        border-color: #ff69b4;
+        background: rgba(255, 240, 245, 0.9);
+        box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+      }
+
+      input::placeholder {
+        color: #c084a8;
+      }
+
+      button {
+        margin-top: 20px;
+        padding: 14px 40px;
+        border: none;
+        border-radius: 25px;
+        background: linear-gradient(135deg, #ff6b9d, #c06c84);
+        color: white;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 16px;
+        font-family: "Quicksand", sans-serif;
+        transition: all 0.4s ease;
+        box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      button:hover::before {
+        left: 100%;
+      }
+
+      button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(255, 105, 180, 0.4);
+      }
+
+      button:active {
+        transform: translateY(-1px);
+      }
+
+      .back-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: rgba(255, 182, 193, 0.3);
+        border: 2px solid rgba(255, 105, 180, 0.3);
+        color: #ff69b4;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        padding: 0;
+        margin: 0;
+        font-weight: bold;
+      }
+
+      .back-btn:hover {
+        background: rgba(255, 105, 180, 0.4);
+        transform: scale(1.1) rotate(-10deg);
+        box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .choice {
+        padding: 18px 25px;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 182, 193, 0.3),
+          rgba(173, 216, 230, 0.3)
+        );
+        border: 2px solid rgba(255, 105, 180, 0.2);
+        border-radius: 20px;
+        cursor: pointer;
+        margin: 15px 0;
+        transition: all 0.4s ease;
+        font-weight: 600;
+        font-size: 17px;
+        color: #5a3a5f;
+      }
+
+      .choice:hover {
+        transform: scale(1.05) translateY(-5px);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 182, 193, 0.5),
+          rgba(173, 216, 230, 0.5)
+        );
+        border-color: #ff69b4;
+        box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
+      }
+
+      .heart {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        transform: rotate(-45deg);
+        opacity: 0;
+        background: linear-gradient(135deg, #ff6b9d, #c06c84);
+        border-radius: 4px;
+        z-index: 100;
+      }
+
+      .heart:before,
+      .heart:after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: inherit;
+      }
+
+      .heart:before {
+        top: -10px;
+        left: 0;
+      }
+
+      .heart:after {
+        left: 10px;
+        top: 0;
+      }
+
+      @keyframes floatUp {
+        0% {
+          opacity: 0;
+          transform: translateY(0) scale(0.5) rotate(-45deg);
+        }
+        10% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-250px) scale(1.2) rotate(-45deg)
+            translateX(30px);
+        }
+      }
+
+      .heart.animate {
+        animation: floatUp 3s ease-out forwards;
+      }
+
+      #sadMessage {
+        margin-top: 25px;
+        font-size: 20px;
+        color: #ff6b9d;
+        font-weight: 600;
+        animation: shake 0.5s ease-in-out infinite alternate;
+      }
+
+      @keyframes shake {
+        from {
+          transform: translateX(-5px) rotate(-2deg);
+        }
+        to {
+          transform: translateX(5px) rotate(2deg);
+        }
+      }
+
+      #loginError {
+        margin-top: 15px;
+        color: #ff6b9d;
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      .flower {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 35% 35%,
+          #fff9,
+          #ffb6c1 0 15%,
+          #ff69b4 20% 40%,
+          #ff1493 50%
+        );
+        display: inline-block;
+        margin: 10px;
+        box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4);
+        animation: bloom 1s ease-out forwards;
+        position: relative;
+      }
+
+      .flower::after {
+        content: "🌸";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 35px;
+      }
+
+      @media (max-width: 480px) {
+        .flower {
+          width: 60px;
+          height: 60px;
+          margin: 8px;
+        }
+
+        .flower::after {
+          font-size: 30px;
+        }
+      }
+
+      @keyframes bloom {
+        from {
+          transform: scale(0) rotate(0deg);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1) rotate(360deg);
+          opacity: 1;
+        }
+      }
+
+      #ribbon {
+        margin-top: 30px;
+        background: linear-gradient(135deg, #ff6b9d, #c06c84, #6c5ce7);
+        padding: 20px 25px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 1.6;
+        opacity: 0;
+        transition: opacity 1.5s ease-in;
+        color: white;
+        box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+      }
+
+      @media (max-width: 480px) {
+        #ribbon {
+          padding: 18px 20px;
+          font-size: 14px;
+          margin-top: 20px;
+        }
+      }
+
+      #ribbon.show {
+        opacity: 1;
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.03);
+        }
+      }
+
+      .sparkle {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0;
+        animation: sparkle 2s ease-in-out infinite;
+      }
+
+      @keyframes sparkle {
+        0%,
+        100% {
+          opacity: 0;
+          transform: scale(0);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="passwordForm">
+      <h1>Nhập mật khẩu ik 💖</h1>
+      <input
+        type="password"
+        id="password"
+        placeholder="Ngày sinh của ai í nhờ 💌"
+      />
+      <br />
+      <button id="loginBtn">Tiếp tục</button>
+      <div id="loginError" class="hidden">Bà chã quên ùi 😢</div>
+    </div>
+
+    <div class="container hidden" id="questionForm">
+      <button class="back-btn" id="backToPass">←</button>
+      <h1>Bà chã là của ai nhỉ 💞</h1>
+      <div class="choice" data-answer="anh">Của ông chã 💕</div>
+      <div class="choice" data-answer="nguoi_khac">Của thằng khácc 🤔</div>
+      <div id="sadMessage" class="hidden">
+        Không thèm nói chuyện với em nữa. Em đi tìm thằng khác mà nói chuyện đi
+      </div>
+    </div>
+
+    <div class="container hidden" id="flowerScene">
+      <button class="back-btn" id="backToQuestion">←</button>
+      <div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+      </div>
+      <div id="ribbon">
+        💐 Dành tặng em ❤️ Chúc Ngân có ngày 20/10 vui vẻ nha 💐<br />Nhớ ăn
+        nhìu lên nhe ❤️
+      </div>
+    </div>
+
+    <script>
+      const PASSWORD = "020811";
+      const passwordForm = document.getElementById("passwordForm");
+      const questionForm = document.getElementById("questionForm");
+      const flowerScene = document.getElementById("flowerScene");
+      const passwordInput = document.getElementById("password");
+      const loginBtn = document.getElementById("loginBtn");
+      const loginError = document.getElementById("loginError");
+      const sadMessage = document.getElementById("sadMessage");
+      const choices = document.querySelectorAll(".choice");
+      const ribbon = document.getElementById("ribbon");
+      const backToPass = document.getElementById("backToPass");
+      const backToQuestion = document.getElementById("backToQuestion");
+
+      function createSparkles() {
+        for (let i = 0; i < 20; i++) {
+          const sparkle = document.createElement("div");
+          sparkle.classList.add("sparkle");
+          sparkle.style.left = Math.random() * 100 + "%";
+          sparkle.style.top = Math.random() * 100 + "%";
+          sparkle.style.animationDelay = Math.random() * 2 + "s";
+          document.body.appendChild(sparkle);
+        }
+      }
+
+      createSparkles();
+
+      loginBtn.addEventListener("click", () => {
+        loginError.classList.add("hidden");
+        if (passwordInput.value === PASSWORD) {
+          passwordForm.classList.add("hidden");
+          questionForm.classList.remove("hidden");
+        } else {
+          loginError.classList.remove("hidden");
+        }
+      });
+
+      passwordInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          loginBtn.click();
+        }
+      });
+
+      backToPass.addEventListener("click", () => {
+        questionForm.classList.add("hidden");
+        passwordForm.classList.remove("hidden");
+        passwordInput.value = "";
+        loginError.classList.add("hidden");
+      });
+
+      backToQuestion.addEventListener("click", () => {
+        flowerScene.classList.add("hidden");
+        questionForm.classList.remove("hidden");
+        sadMessage.classList.add("hidden");
+        ribbon.classList.remove("show");
+      });
+
+      choices.forEach((choice) =>
+        choice.addEventListener("click", () => {
+          sadMessage.classList.add("hidden");
+          if (choice.dataset.answer === "anh") {
+            questionForm.classList.add("hidden");
+            flowerScene.classList.remove("hidden");
+            showHearts(15);
+            setTimeout(() => ribbon.classList.add("show"), 500);
+          } else {
+            sadMessage.classList.remove("hidden");
+          }
+        })
+      );
+
+      function showHearts(count) {
+        for (let i = 0; i < count; i++) {
+          const heart = document.createElement("div");
+          heart.classList.add("heart");
+          heart.style.left =
+            20 + Math.random() * (window.innerWidth - 100) + "px";
+          heart.style.bottom = "20px";
+          document.body.appendChild(heart);
+          setTimeout(() => heart.classList.add("animate"), i * 200);
+          setTimeout(() => heart.remove(), 3000 + i * 200);
+        }
+      }
+    </script>
+  </body>
+</html>
